@@ -1,2 +1,2 @@
 # PracticeProblems
-Just a few problems i felt were tricky.
+Just a few problems I practiced.
