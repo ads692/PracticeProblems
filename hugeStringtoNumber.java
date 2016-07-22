@@ -46,4 +46,27 @@ private static double findDouble(String str) {
 	return d;
 }		
 
+private static BigInteger findBig(String str) {
+	
+	BigInteger b = BigInteger.valueOf(0);
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	try{
+		for(int i=0; i<str.length();i++){
+			char c = str.charAt(i);
+			a.add((int) c-'0'); 
+		}
+			
+		for(int j = 0; j < a.size() ; j++){
+			b = b.multiply(BigInteger.valueOf(10));
+			b = b.add(BigInteger.valueOf(a.get(j)));
+		}
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	
+	return b;
+	
+}
+
 }
