@@ -11,7 +11,8 @@ public class Patient {
 	private String ssn;
 	private Date date;
 	private ArrayList<String> phNum;
-	private HashMap<String, String> allergyList;
+	private HashMap<String, String> symptomsList;
+	private ArrayList<String> allergyList;
 	private ArrayList<String> diseaseList;
 	private double ftemp, ctemp;
 	
@@ -48,12 +49,20 @@ public class Patient {
 		this.date = date;
 	}
 
-	public HashMap<String, String> getAllergyList() {
+	public ArrayList<String> getAllergyList() {
 		return allergyList;
 	}
 
-	public void setAllergyList(HashMap<String, String> allergyList) {
+	public void setAllergyList(ArrayList<String> allergyList) {
 		this.allergyList = allergyList;
+	}
+
+	public HashMap<String, String> getSymptomsList() {
+		return symptomsList;
+	}
+
+	public void setSymptomsList(HashMap<String, String> symptomsList) {
+		this.symptomsList = symptomsList;
 	}
 
 	public ArrayList<String> getDiseaseList() {
@@ -103,5 +112,4 @@ public class Patient {
 	public void setTm(TempMeasure tm) {
 		this.tm = tm;
 	}
-	
 }
