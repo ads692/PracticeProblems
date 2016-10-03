@@ -20,19 +20,27 @@ public class PatientHealthInfo {
 		pt.setPhNum(phNum);
 				
 		ArrayList<String> diseaseList = new ArrayList<String>();
-		HashMap<String, String> allergyList = new HashMap<String, String>();
+		ArrayList<String> allergies = new ArrayList<String>();
+		HashMap<String, String> allergySymptomList = new HashMap<String, String>();
 		
 		Allergy al = new Allergy();
-		al.setAllergyName("rashes");
-		al.setSeverity("high");
-		
-		allergyList.put(al.getAllergyName(), al.getSeverity());
+		al.setAllergyName("Peanut Butter");
+		al.setSymptomsName("rashes");
+		al.setSv(Severity.High);
+		allergySymptomList.put(al.getSymptomsName(), al.getSv().toString());
 		
 		Allergy al1 = new Allergy();
-		al1.setAllergyName("swelling");
-		al1.setSeverity("medium");
-		allergyList.put(al1.getAllergyName(), al1.getSeverity());
-		pt.setAllergyList(allergyList);
+		al1.setAllergyName("Pollen");
+		al1.setSymptomsName("swelling");
+		al1.setSv(Severity.Low);
+		allergySymptomList.put(al1.getSymptomsName(), al1.getSv().toString());
+		
+		pt.setSymptomsList(allergySymptomList);
+		
+		allergies.add(al.getAllergyName());
+		allergies.add(al1.getAllergyName());
+		pt.setAllergyList(allergies);
+		
 		
 		Disease d1 = new Disease();
 		d1.setDiseaseName("AIDS");
@@ -59,6 +67,7 @@ public class PatientHealthInfo {
 		System.out.println("Phone Numbers - " + pt.getPhNum());
 		System.out.println("SSN - " + pt.getSSN());
 		System.out.println("Allergies - " + pt.getAllergyList());
+		System.out.println("Symptoms - " + pt.getSymptomsList());
 		System.out.println("Diseases - " + pt.getDiseaseList());
 		System.out.println("Temp in F - " + pt.getFtemp());
 		System.out.println("Temp in C - " + pt.getCtemp());
