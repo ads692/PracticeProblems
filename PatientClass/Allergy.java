@@ -1,21 +1,32 @@
 public class Allergy {
 
-	private String allergyName;
-	private String severity;
+	private String AllergyName;
+	private String symptomName;
+	private Severity sv;
+
 	
 	public String getAllergyName() {
-		return allergyName;
+		return AllergyName;
 	}
 
 	public void setAllergyName(String allergyName) {
-		this.allergyName = allergyName;
+		AllergyName = allergyName;
 	}
 
-	public String getSeverity() {
-		return severity;
+	public String getSymptomsName() {
+		return symptomName;
 	}
 
-	public void setSeverity(String severity) {
-		this.severity = severity;
+	public void setSymptomsName(String symptomName) {
+		this.symptomName = symptomName;
 	}
+	
+	public Severity getSv() {
+		return sv;
+	}
+
+	public void setSv(Severity sv) {
+		this.sv = sv;
+	}
+	
 }
