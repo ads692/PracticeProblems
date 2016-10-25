@@ -1,20 +1,25 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
 public class Patient {
 	
 	private String fname, lname;
-	private int age;
 	private Gender gender;
 	private TempMeasure tm;
 	private String ssn;
 	private Date date;
+	private Date dob;
 	private ArrayList<String> phNum;
 	private HashMap<String, String> symptomsList;
 	private ArrayList<String> allergyList;
 	private ArrayList<String> diseaseList;
 	private double ftemp, ctemp;
+	private ReportedBy rb;
+	private LocalDate ld, cld; 
+	private int age;
 	
 	public String getName() {
 		return fname +" "+ lname;
@@ -33,20 +38,20 @@ public class Patient {
 		this.ssn = ssn;
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public Date getDate() {
 		return date;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 
 	public ArrayList<String> getAllergyList() {
@@ -111,5 +116,35 @@ public class Patient {
 
 	public void setTm(TempMeasure tm) {
 		this.tm = tm;
+	}
+
+	public ReportedBy getRb() {
+		return rb;
+	}
+
+	public void setRb(ReportedBy rb) {
+		this.rb = rb;
+	}
+
+	public LocalDate getLd() {
+		return ld;
+	}
+
+	public void setLd(LocalDate ld) {
+		this.ld = ld;
+	}
+
+	public LocalDate getCld() {
+		return cld;
+	}
+
+	public void setCld(LocalDate cld) {
+		this.cld = cld;
+	}
+
+	public int getAge(Date bday, Calendar now, long milliseconds) {
+		milliseconds = now.getTimeInMillis() - bday.getTime();
+		age = (int)Math.ceil(milliseconds*3.171e-11);
+		return age;
 	}
 }
