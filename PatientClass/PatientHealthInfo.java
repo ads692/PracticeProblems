@@ -7,13 +7,15 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class PatientHealthInfo {
 	public static void main(String[] args) throws ParseException {
 		
 		Patient pt = new Patient();
+		
+		Address ad = new Address("1130 E univ Dr", "Apt 201", "Tempe", USStates.AZ, 85281);
+		pt.setAddress(ad.format());
 		
 		Calendar now = Calendar.getInstance();
 		pt.setDate(now.getTime());
@@ -59,8 +61,7 @@ public class PatientHealthInfo {
 		al.setAllergyName("Peanut Butter");
 		al.setSymptomsName("rashes");
 		al.setSv(Severity.High);
-		allergySymptomList.put(al.getSymptomsName(), al.getSv().toString());
-		
+		allergySymptomList.put(al.getSymptomsName(), al.getSv().toString());		
 		
 		Allergy al1 = new Allergy();
 		al1.setAllergyName("Pollen");
@@ -82,7 +83,6 @@ public class PatientHealthInfo {
 		Disease d2 = new Disease();
 		d2.setDiseaseName("Dengue");
 		diseaseList.add(d2.getDiseaseName());
-		diseaseList.remove(0);
 		
 		pt.setDiseaseList(diseaseList);
 		
@@ -101,10 +101,9 @@ public class PatientHealthInfo {
 		System.out.println("Date - " + pt.getDate());
 		System.out.println("Name - " + pt.getName());
 		System.out.println("D.O.B - " + pt.getDob());
-		
+		System.out.println("Address - " + pt.getAddress());
 		//System.out.println("Age - "+ (now.get(Calendar.YEAR) - birthday.getYear()) + " years");
 		//findAge(bday);
-		
 		System.out.println("Gender - " + pt.getGender());
 		System.out.println("Phone Numbers - " + pt.getPhNum());
 		System.out.println("SSN - " + pt.getSSN());
@@ -123,7 +122,7 @@ public class PatientHealthInfo {
 		System.out.println("--------------------------------------");
 	}
 
-	private static void findAge(Date birthday) throws ParseException {
+	/*private static void findAge(Date birthday) throws ParseException {
 		
 		Calendar now = Calendar.getInstance();
 		now.setTime(new Date());
@@ -136,6 +135,6 @@ public class PatientHealthInfo {
 		
 		System.out.println("Age - "+ (now.get(Calendar.YEAR) - bday.get(Calendar.YEAR))+ " years");
 		
-	}
+	}*/
 
 }
