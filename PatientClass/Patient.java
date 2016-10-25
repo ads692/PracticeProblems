@@ -20,7 +20,18 @@ public class Patient {
 	private ReportedBy rb;
 	private LocalDate ld, cld; 
 	private int age;
+	private String Address;
 	
+	
+	public String getAddress() {
+		return Address;
+	}
+
+	
+	public void setAddress(String address) {
+		Address = address;
+	}
+
 	public String getName() {
 		return fname +" "+ lname;
 	}
