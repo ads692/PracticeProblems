@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,11 +17,12 @@ public class Patient {
 	private HashMap<String, String> symptomsList;
 	private ArrayList<String> allergyList;
 	private ArrayList<String> diseaseList;
-	private double ftemp, ctemp;
+	private double ftemp, ctemp, ktemp;
 	private ReportedBy rb;
-	private LocalDate ld, cld; 
+	private LocalDate cld, birthdate; 
 	private int age;
 	private String Address;
+	private ArrayList<String> medChart;
 	
 	
 	public String getAddress() {
@@ -121,6 +123,16 @@ public class Patient {
 		this.ctemp = ctemp;
 	}
 
+	
+	public double getKtemp() {
+		return ktemp;
+	}
+
+	public void setKtemp(double ktemp) {
+		this.ktemp = ktemp;
+	}
+
+
 	public TempMeasure getTm() {
 		return tm;
 	}
@@ -137,14 +149,6 @@ public class Patient {
 		this.rb = rb;
 	}
 
-	public LocalDate getLd() {
-		return ld;
-	}
-
-	public void setLd(LocalDate ld) {
-		this.ld = ld;
-	}
-
 	public LocalDate getCld() {
 		return cld;
 	}
@@ -153,9 +157,30 @@ public class Patient {
 		this.cld = cld;
 	}
 
+	public LocalDate getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(LocalDate birthdate) {
+		this.birthdate = birthdate;
+	}
+
+
 	public int getAge(Date bday, Calendar now, long milliseconds) {
 		milliseconds = now.getTimeInMillis() - bday.getTime();
 		age = (int)Math.ceil(milliseconds*3.171e-11);
 		return age;
+	}
+
+	public int getAgeFromLD() {
+		int age = Period.between(getBirthdate(), getCld()).getYears();
+		return age;
+	}
+
+	public ArrayList<String> getMedChart() {
+		return medChart;
+	}
+	public void setMedChart(ArrayList<String> medChart) {
+		this.medChart = medChart;
 	}
 }

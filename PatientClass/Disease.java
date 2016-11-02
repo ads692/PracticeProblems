@@ -6,8 +6,8 @@ public class Disease {
 		return diseaseName;
 	}
 
-	public boolean setDiseaseName(String diseaseName) {
+	public void setDiseaseName(String diseaseName) {
 		this.diseaseName = diseaseName;
-		return false;
 	}
+	
 }

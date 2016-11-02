@@ -29,4 +29,8 @@ public class Allergy {
 		this.sv = sv;
 	}
 	
+	public String formatAllergy(){
+		return getAllergyName() + " - " + getSymptomsName() + " - " + getSv() + " severity";
+		
+	}
 }
